@@ -53,4 +53,32 @@ public class TokenHelperTest
             assertFalse(i, TokenHelper.isValue(i));
         }
     }
+
+    @Test
+    public void testIsOperator()
+    {
+        String[] valid =
+        {
+            "+",
+            "-",
+            "/",
+            "*"
+        };
+        String[] invalid =
+        {
+            "hello",
+            "-+/*",
+            "ur8ife",
+            "5645",
+            ".0.",
+        };
+        for (String v : valid)
+        {
+            assertTrue(v, TokenHelper.isOperator(v));
+        }
+        for (String i : invalid)
+        {
+            assertFalse(i, TokenHelper.isOperator(i));
+        }
+    }
 }
